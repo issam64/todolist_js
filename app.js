@@ -12,30 +12,34 @@ filterOption.addEventListener('click',filterTodo)
 //functions
 function addTodo(event){
     //prevent form from submitting 
-    event.preventDefault();
-    //creat div
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo')
-    //creat li
-    const newTodo = document.createElement('li');
-    newTodo.innerHTML= todoInput.value;
-    newTodo.classList.add('todo-item');
-    todoDiv.appendChild(newTodo);
-    //completed button 
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML = '<i class="fas fa-check"></i>';
-    completedButton.classList.add('completed-btn');
-    todoDiv.appendChild(completedButton);
-    //trach button
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-    trashButton.classList.add('trash-btn');
-    todoDiv.appendChild(trashButton);
-    //append to list
-    todoList.appendChild(todoDiv);
-    //clear todo input value
-    todoInput.value='';
-    filterOption.value = "all";
+    if(!todoInput.value == ""){
+        event.preventDefault();
+        //creat div
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo')
+        //creat li
+        const newTodo = document.createElement('li');
+        newTodo.innerHTML= todoInput.value;
+        newTodo.classList.add('todo-item');
+        todoDiv.appendChild(newTodo);
+        //completed button 
+        const completedButton = document.createElement('button');
+        completedButton.innerHTML = '<i class="fas fa-check"></i>';
+        completedButton.classList.add('completed-btn');
+        todoDiv.appendChild(completedButton);
+        //trach button
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+        trashButton.classList.add('trash-btn');
+        todoDiv.appendChild(trashButton);
+        //append to list
+        todoList.appendChild(todoDiv);
+        //clear todo input value
+        todoInput.value='';
+        filterOption.value = "all";
+    }else {
+        alert("please out the input");
+    }
 }
 
 function deleteCheck(e){
